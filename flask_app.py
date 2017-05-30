@@ -155,8 +155,8 @@ def get_select_command(value,dataset,cells='ALL',condition='gene_name'):
 
 # do a query and get list of data
 def get_gene_data(gene_name, dataset, cells='ALL'):
-    print cells
-    print(get_select_command(gene_name,dataset,cells))
+    #print cells
+    #print(get_select_command(gene_name,dataset,cells))
     cursor = get_db().execute(get_select_command(gene_name,dataset,cells))
     data = []
     for row in cursor:
@@ -409,7 +409,7 @@ def create_ctc_graph(gene_name,cell_type, show_repeats=False):
             all_columns = list(gene_data[dataset][gene_repeat])
             for cell in all_columns:
                 parts = cell[0].split('_')
-                print "cell: {}".format(cell)
+                #print "cell: {}".format(cell)
                 exp_level =round(float(cell[1]), 3)
                 max_exp_value = max(exp_level,max_exp_value)
                 if 'M' in parts or 'male' in parts:
