@@ -33,6 +33,10 @@
 			{% endfor %}
 
 	</div>
+	
+{% if ' ' in request.path.split('/') %}
+	Please enter gene symbol.
+{% endif %}
 	<div class="graphs">
 
         {% if graph %}	
