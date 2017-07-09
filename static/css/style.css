@@ -69,6 +69,7 @@ main{
 }
 
 .center {
+	width:1400;
 	margin-left:auto;
 	margin-right:auto;
 }
