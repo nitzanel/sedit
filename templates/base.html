@@ -24,8 +24,8 @@
 			<br>
 			<br>
 			<nav>
-				<a {% if "pan_immune" in request.path.split('/') %}class="active"{% endif %} href="{{ '/sedit' +  url_for('pan_immune') }}"> <strong> pan_immune </strong></a>
-				<a {% if "cell_type_specific" in request.path.split('/') %}class="active"{% endif %} href="{{ '/sedit' + url_for('cell_type_specific') }}"> <strong> cell_type_specific </strong></a>
+				<a {% if "pan_immune" in request.path.split('/') %}class="active"{% endif %} href="{{ '/sedit' +  url_for('pan_immune') }}"> <strong> pan immune </strong></a>
+				<a {% if "cell_type_specific" in request.path.split('/') %}class="active"{% endif %} href="{{ '/sedit' + url_for('cell_type_specific') }}"> <strong> cell type specific </strong></a>
 				<a {% if "about" in request.path.split('/') %} class="active"{% endif %} href="{{ '/sedit' + url_for('about') }}"> <strong> About </strong></a>
 			</nav>
 		</header>
