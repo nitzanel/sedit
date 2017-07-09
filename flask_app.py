@@ -528,7 +528,7 @@ def cell_type_specific():
             ctc_gene_url = ''
             if flask.request.form['gene_name'] != '':
                 ctc_gene_url = '/'.join(['genes','cell_type_specific',flask.request.form['gene_name'].upper(),flask.request.form['cell_type'].upper()])
-            else
+            else:
                 ctc_gene_url = '/'.join(['genes','cell_type_specific',' ',flask.request.form['cell_type'].upper()])
             return flask.redirect(prefix + '/' + ctc_gene_url)
     return flask.render_template('cell_type_specific.html',form=form)
