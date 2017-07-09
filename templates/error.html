@@ -28,14 +28,14 @@
 		<br>
 
 	</div>
-
+<p style="color:red;">
 {% if ' ' in request.path.split('/') %}
-        <p style="color:red;">
-            Please enter gene symbol.
-        </p>
+	Please enter gene symbol.
+       
 {% else %}
-Gene {{ gene_name }} not found in the database.
+	Gene {{ gene_name }} not found in the database.
 {% endif %}
+ </p>
     {% if header %}
     {{ header }}
     {% endif %}
