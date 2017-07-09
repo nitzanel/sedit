@@ -29,7 +29,7 @@
 
 	</div>
 
-{% if '%20' in request.path.split('/') %}
+{% if ' ' in request.path.split('/') %}
         <p style="color:red;">
             Please enter gene symbol.
         </p>
