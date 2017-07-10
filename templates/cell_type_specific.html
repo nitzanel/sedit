@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class='center'>
+	<div style="font-size: x-large;">
 	<div class='search'>
 		<h1> Male vs. Female Per Cell Type gene expression  </h1>
-		<p style="font-size: medium;">
-			Displays expression levels in selected cell type in males and females in four datasets.
+		<p>
+		    Displays expression levels in selected cell type in males and females in four datasets.
 		</p>
 		<form action="{{ '/sedit' +  url_for('cell_type_specific') }}" method="post" id="search_gene">
 			{{ form.hidden_tag()|safe }}
@@ -32,13 +33,19 @@
 			{% endfor %}
 
 	</div>
+		
+{% if ' ' in request.path.split('/') %}
+	<p style="color:red;">
+	Please enter gene symbol.
+	</p>
+{% endif %}
 	<div class="graphs">
 
         {% if graph %}	
 		<embed type='image/svg+xml' src = "{{ graph|safe }}" />
 		<br>
         {% endif %}
-
+		</div>
 	</div>
 </div>
 

@@ -507,7 +507,12 @@ def pan_immune():
         if flask.g.sijax.is_sijax_request:
             flask.g.sijax.register_callback('autocomplete',autocomplete)
             return flask.g.sijax.process_request()
-        pi_gene_url = '/'.join(['genes','pan_immune',flask.request.form['gene_name'].upper()])
+        # fix no input search bug
+        pi_gene_url=''
+        if flask.request.form['gene_name'] != '':
+            pi_gene_url = '/'.join(['genes','pan_immune',flask.request.form['gene_name'].upper()])
+        else:
+            pi_gene_url = '/'.join(['genes','pan_immune',' '])
         return flask.redirect( prefix + '/' + pi_gene_url)
     return flask.render_template('pan_immune.html',form=search_form)
 
@@ -520,7 +525,11 @@ def cell_type_specific():
             flask.g.sijax.register_callback('autocomplete',autocomplete)
             return flask.g.sijax.process_request()
         else:
-            ctc_gene_url = '/'.join(['genes','cell_type_specific',flask.request.form['gene_name'].upper(),flask.request.form['cell_type'].upper()])
+            ctc_gene_url = ''
+            if flask.request.form['gene_name'] != '':
+                ctc_gene_url = '/'.join(['genes','cell_type_specific',flask.request.form['gene_name'].upper(),flask.request.form['cell_type'].upper()])
+            else:
+                ctc_gene_url = '/'.join(['genes','cell_type_specific',' ',flask.request.form['cell_type'].upper()])
             return flask.redirect(prefix + '/' + ctc_gene_url)
     return flask.render_template('cell_type_specific.html',form=form)
 
